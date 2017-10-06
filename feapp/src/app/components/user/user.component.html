@@ -1,0 +1,83 @@
+
+
+
+
+<h1>{{ showname ? name : 'Minor Child'}}</h1>
+<ul>
+    <li *ngIf="mybool">Age: {{age}}</li>
+    <li *ngIf="!mybool">Email: {{email}}</li>
+    <li *ngIf="mybool; else schAddr">Address: {{address.street}}  {{address.city}}  {{address.state}}</li>
+    <ng-template #schAddr>700 Park Avenue</ng-template>
+</ul>
+
+<button id='btn' (click)="onClick($event)" >Click Me</button>
+<button id='btn' (mouseover)="onClick($event)" >MouseOver Me</button>
+<button id='btn' (mousedown)="onClick($event)">MouseDown Me</button>
+<button id='btn' (dblclick)="onClick($event)" >Double Click Me</button>
+<button id='btn' (click)="changeValue()" >Change Value</button>
+<div>
+    <input type="text" (keyup)="onClick($event)" placeholder="keyup">&nbsp; &nbsp;
+    <input type="text" (keydown)="onClick($event)" placeholder="keydown">&nbsp; &nbsp;
+    <input type="text" (blur)="onClick($event)" placeholder="blur">&nbsp; &nbsp;
+    <input type="text" (cut)="onClick($event)" placeholder="cut">&nbsp; &nbsp;
+    <input type="text" (copy)="onClick($event)" placeholder="copy">&nbsp; &nbsp;
+    <input type="text" (paste)="onClick($event)" placeholder="paste">&nbsp; &nbsp;
+</div>
+<h1>Edit User</h1>
+<form>
+    <div><img id="4Mv2CONANym46UwuuCIgK" src="//images.contentful.com/3cttzl4i3k1h/4Mv2CONANym46UwuuCIgK/cbeb43c93a843a43c07b1de9954795e2/headshot_joel_garrett.jpg"
+        alt="Image1" width="340" height="340"></div>
+    <div>
+        <label for="name">Name: </label><br>
+        <input type="text" [(ngModel)]="name" name="name">
+    </div>
+    <div>
+        <label for="email">eMail: </label><br>
+        <input type="text" [(ngModel)]="email" name="email">
+    </div>
+    <div>
+        <label for="Age">Age: </label><br>
+        <input type="number" [(ngModel)]="age" name="age">
+    </div>
+    <div>
+        <label for="Birthday">Birthday:</label><br>
+          {{birthday  }}<br>
+          {{birthday | date | uppercase }}<br>
+           {{birthday | date:"MM-dd-yy" }}<br>
+            {{birthday | date:"yyyy" }}<br>
+    Piping numbers {{ age | currency }}  :  {{ age +  3 + 19 + 100 + 286   }}
+    </div>
+    <div>
+        <label for="street">street: </label><br>
+        <input type="text" [(ngModel)]="address.street" name="street">
+    </div>
+    <div>
+        <label for="city">City: </label><br>
+        <input type="text" [(ngModel)]="address.city" name="city">
+    </div>
+    <div>
+        <label for="state">State: </label><br>
+        <input type="text" [(ngModel)]="address.state" name="state">
+    </div>
+</form>
+
+<h1>Hobbies</h1>
+<form (submit)="addHobby(hobby.value)">
+    <div >
+        <label for="hobby" >Hobby:</label>
+        <input type="text" #hobby>
+        <button [ngStyle]="currentStyles">Add Hobby</button>
+    </div>
+</form>
+<ul>
+    <li *ngFor="let hobby of hobbies; let i = index">{{i+1}}: {{hobby}}
+    <button (click)="deleteHobby(hobby)">Delete Item</button></li>
+</ul>
+<ul>List of Hobbies
+    <li *ngFor="let hobby of hobbies; let i = index" [ngSwitch]="i">
+        <div *ngSwitchCase="'0'">Zero No Higher</div>
+        <div *ngSwitchCase="'1'">Uno</div>
+        <div *ngSwitchDefault>{{i+1}}</div>
+        : {{hobby}}
+    </li>
+</ul>

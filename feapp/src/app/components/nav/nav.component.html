@@ -1,0 +1,28 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['']">Memorization Game</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+
+            <ul class="navbar-nav mr-auto">
+
+                      <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Game Mode
+                                </a>
+
+                                <div  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" [routerLink]="['/picMode/newgame']">Picture Mode</a>
+                                          <a class="dropdown-item" [routerLink]="['/teamMode/newgame']">Team Mode</a>
+                                          <a class="dropdown-item" [routerLink]="['/nameMode/newgame']">Name Mode</a>
+                                </div>
+                      </li>
+                      <li   [routerLinkActive]="['active']">
+                                <a [routerLink]="['/finitMode']" class="nav-link" >Quit Game</a>
+                      </li>
+
+            </ul>
+  </div>
+</nav>

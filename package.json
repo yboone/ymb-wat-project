@@ -4,13 +4,14 @@
   "description": "get to know your coworkers with simple face to name match game",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node app"
   },
   "dependencies": {
       "express": "*" ,
       "body-Parser": "*",
       "mongoose": "*",
-      "mongoose-random": "*"
+      "cors": "*"
   },
   "author": "Yvette M Boone",
   "license": "ISC"

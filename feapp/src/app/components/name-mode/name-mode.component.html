@@ -1,0 +1,32 @@
+<app-namemode-nav></app-namemode-nav>
+
+
+        <div class="form-group">
+                <div class="card text-center"  >
+
+                        <div class="card-header">
+                                 <!-- <h3> {{ rand_index }}</h3> -->
+                            <div  *ngIf="matchstatus==true" class="alert alert-success" role="alert">  <strong>{{myname}}</strong></div>
+                            <div *ngIf="headshot_url"><img class="card-img-top" alt="Headshot" height="200px" width="200px" [src]="headshot_url"></div>
+                            <div *ngIf="matchstatus==true"  class="alert alert-success" role="alert">
+                                  <strong>Well done!</strong> You successfully made a match!!</div>
+                        </div>
+
+                        <div class="card-group" display="flex">
+                                         <div class="card"  *ngFor="let p of (people)  ">
+                                                <form (ngSubmit)="onSubmit(f)"  #f="ngForm" novalidate >
+
+
+                                                             <div ngModelGroup = "headshot"><input type="hidden" class="form-control" [ngModel]= "headshot_id" name="id"></div>
+                                                             <div class="form-group"><input type="hidden" class="form-control" [(ngModel)]= "p.id" name="id">  </div>
+                                                                                                                <input type="hidden" class="form-control" [(ngModel)]="p.was_matched" name="was_matched">
+                                                         <div *ngIf="matchstatus==false"><button   type="submit" name="submit" value="Submit" class="btn btn-success">{{p.firstName}} {{ p.lastName}}</button></div>
+                                                </form>
+                                                <div   *ngIf="p.id !=nameid&&p.id==chosen_id"  class="alert alert-danger" role="alert">  <strong>Oh snap!</strong> Try Again.</div>
+
+                                        </div>
+                        </div>
+
+                        <div class="card-footer text-muted">Double-Click on the Picture that Matches the Name Above </div>
+                </div>
+        </div>

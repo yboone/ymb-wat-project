@@ -1,34 +1,21 @@
 // var mongoose = require('mongoose');
-// //Schema for the app
-// var peopleSchema = mongoose.Schema({
-//     firstName:{
-//         type: String,
-//         required: true
-//     },
-//     lastName:{
-//         type: String,
-//         required: true
-//     },
-//     create_date:{
-//         type: Date,
-//         default: Date.now
-//     }
-// });
-// //
-// //makes this  model accessible from anywhere else.
-// var newGame = module.exports = mongoose.model('People', peopleSchema);
+// var random = require('mongoose-random');
 //
-// //get People
-// module.exports.getFive = function(callback, limit){
-//     NewGame.find(callback).limit(5);
+//
+// //get 5  People
+// module.exports.getFive = function(people){
+//
+//         var    limitrecords=5;
+//
+//        function getRandomArbitrary(min, max) {
+//            return Math.ceil(Math.random() * (max - min) + min);
+//        }
+//
+//
+//        var count = People.find({jobTitle: {$exists : true}}).count({}, function(err, count) {
+//            if (err){
+//                 throw err;
+//         }//console.log('count: ');   console.log(count);
+//                People.find({jobTitle: {$exists : true}}, 'headshot.url id firstName lastName').skip( getRandomArbitrary(1, count-limitrecords) ).limit(limitrecords).exec(people); // Random Offset
+//         });
 // }
-//
-// // //get People
-// // module.exports.getPeople = function(callback, limit){
-// //     People.find(callback).limit(5);
-// // }
-//
-// // //get one person
-// // module.exports.getPeopleById = function(id,callback){
-// //     	People.findById(id, callback);
-// // }

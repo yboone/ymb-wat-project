@@ -1,0 +1,22 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText"  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">NAME MODE</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+
+    </ul>
+    <span class="navbar-text">
+        <form class="form-inline">
+            <a [routerLink]="['/nameMode/newgame']" class="btn btn-sm align-left btn-outline-warning" role="button" >New Game</a>
+            <a [routerLink]="['/nameMode/playagain']" routerLinkActive="active" class="btn btn-sm align-right btn-outline-success" role="button" >Play Again</a>
+      </form>
+    </span>
+  </div>
+</nav>
+
+<p><span class="navbar-text">
+    You will be given five names along with One picture.  Click on the name to make a match.
+    <br>Keep trying until you get it right.  Then click either New Game or Play Again above
+</span></p>
